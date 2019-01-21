@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+# Memory is in kilobits, HardCPU is name/type,#,size of 1st level $, 2nd level $
+<device name="XC6VLX75T" LUTS="46560" MEMORY="5616" DSPS="288" MAXIO="360" />
+<device name="XC6VLX130T" LUTS="80000" MEMORY="9504" DSPS="480" MAXIO="600" />
+<device name="XC6VLX195T" LUTS="124800" MEMORY="12384" DSPS="640" MAXIO="600" />
+<device name="XC6VLX240T" LUTS="150720" MEMORY="14976" DSPS="768" MAXIO="720" />
+<device name="XC6VLX365T" LUTS="227520" MEMORY="14976" DSPS="576" MAXIO="720" />
+<device name="XC6VLX550T" LUTS="343680" MEMORY="22752" DSPS="864" MAXIO="1200" />
+<device name="XC6VLX760" LUTS="474240" MEMORY="25920" DSPS="864" MAXIO="1200" />
+<device name="XC7A200T" LUTS="215360" MEMORY="13140" DSPS="740" MAXIO="400" />
+<family name="zynq">
+   <device name="xc7z020" LUTS="53200" MEMORY="4480" DSPS="220" MAXIO="328" HARDCPU="Zynq,2,32,256" >
+   <device name="xc7z045" LUTS="218600" MEMORY="19620" DSPS="900" MAXIO="506" HARDCPU="Zynq,2,32,256" >
+</family>

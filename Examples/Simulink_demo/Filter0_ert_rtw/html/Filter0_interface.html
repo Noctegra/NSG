@@ -1,0 +1,136 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="rtwreport.css" /><script language="JavaScript" type="text/javascript">function rtwTableShrink(o) {var t = o.nextSibling;if (t.nodeType != 1) {t = t.nextSibling;}if (t.style.display == "none") {t.style.display = "";o.innerHTML = "[-]"} else {t.style.display = "none";o.innerHTML = "[+] ... "}}</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Code Interface Report for Filter0</title>
+</head>
+<body ONLOAD="try {if (top) {if (top.rtwPageOnLoad) top.rtwPageOnLoad('rtwIdCodeInterface'); else local_onload();}} catch(err) {};"><h1>Code Interface Report for Filter0</h1>
+<h3>Table of Contents</h3>
+<ul><li><a href="#sec_Entry_Point_Functions">Entry Point Functions</a>
+</li>
+<li><a href="#sec_Inports">Inports</a>
+</li>
+<li><a href="#sec_Outports">Outports</a>
+</li>
+<li><a href="#sec_Interface_Parameters">Interface Parameters</a>
+</li>
+<li><a href="#sec_Data_Stores">Data Stores</a>
+</li>
+</ul>
+<h3><a name="sec_Entry_Point_Functions">Entry Point Functions</a>
+</h3>
+<p align="left">Function: <a href="Filter0_c.html#fcn_Filter0_initialize">Filter0_initialize</a></p>
+<table width="100%" class="AltRow" cellspacing="0"><tr class="even"><td width="25%" align="left">Prototype</td>
+<td width="75%" align="left"><b>void Filter0_initialize(void)</b>
+</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Description</td>
+<td width="75%" align="left">Initialization entry point of generated code</td>
+</tr>
+<tr class="even"><td width="25%" align="left">Timing</td>
+<td width="75%" align="left">Called once</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Arguments</td>
+<td width="75%" align="left">None</td>
+</tr>
+<tr class="even"><td width="25%" align="left">Return value</td>
+<td width="75%" align="left">None</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Header file</td>
+<td width="75%" align="left"><a href="Filter0_h.html">Filter0.h</a></td>
+</tr>
+</table>
+<p align="left">Function: <a href="Filter0_c.html#fcn_Filter0_step">Filter0_step</a></p>
+<table width="100%" class="AltRow" cellspacing="0"><tr class="even"><td width="25%" align="left">Prototype</td>
+<td width="75%" align="left"><b>void Filter0_step(void)</b>
+</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Description</td>
+<td width="75%" align="left">Output entry point of generated code</td>
+</tr>
+<tr class="even"><td width="25%" align="left">Timing</td>
+<td width="75%" align="left">Called periodically, every 0.001 seconds</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Arguments</td>
+<td width="75%" align="left">None</td>
+</tr>
+<tr class="even"><td width="25%" align="left">Return value</td>
+<td width="75%" align="left">None</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Header file</td>
+<td width="75%" align="left"><a href="Filter0_h.html">Filter0.h</a></td>
+</tr>
+</table>
+<p align="left">Function: <a href="Filter0_c.html#fcn_Filter0_terminate">Filter0_terminate</a></p>
+<table width="100%" class="AltRow" cellspacing="0"><tr class="even"><td width="25%" align="left">Prototype</td>
+<td width="75%" align="left"><b>void Filter0_terminate(void)</b>
+</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Description</td>
+<td width="75%" align="left">Termination entry point of generated code</td>
+</tr>
+<tr class="even"><td width="25%" align="left">Timing</td>
+<td width="75%" align="left">Called once</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Arguments</td>
+<td width="75%" align="left">None</td>
+</tr>
+<tr class="even"><td width="25%" align="left">Return value</td>
+<td width="75%" align="left">None</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Header file</td>
+<td width="75%" align="left"><a href="Filter0_h.html">Filter0.h</a></td>
+</tr>
+</table>
+<h3><a name="sec_Inports">Inports</a>
+</h3>
+<table width="100%" class="AltRow FirstColumn" cellspacing="0"><tr class="heading"><td width="40%" align="left"><b>Block Name</b>
+</td>
+<td width="25%" align="left"><b>Code Identifier</b>
+</td>
+<td width="25%" align="left"><b>Data Type</b>
+</td>
+<td width="10%" align="right"><b>Dimension</b>
+</td>
+</tr>
+<tr class="even"><td width="40%" align="left"><a href="matlab:rtwprivate('code2model','fir_filter:31')" name="code2model" class="code2model">&lt;S1&gt;/In1</a></td>
+<td width="25%" align="left">Filter0_U.In1</td>
+<td width="25%" align="left">real_T</td>
+<td width="10%" align="right">1</td>
+</tr>
+</table>
+<h3><a name="sec_Outports">Outports</a>
+</h3>
+<table width="100%" class="AltRow FirstColumn" cellspacing="0"><tr class="heading"><td width="40%" align="left"><b>Block Name</b>
+</td>
+<td width="25%" align="left"><b>Code Identifier</b>
+</td>
+<td width="25%" align="left"><b>Data Type</b>
+</td>
+<td width="10%" align="right"><b>Dimension</b>
+</td>
+</tr>
+<tr class="even"><td width="40%" align="left"><a href="matlab:rtwprivate('code2model','fir_filter:32')" name="code2model" class="code2model">&lt;S1&gt;/Out1</a></td>
+<td width="25%" align="left">Filter0_Y.Out1</td>
+<td width="25%" align="left">real_T</td>
+<td width="10%" align="right">1</td>
+</tr>
+</table>
+<h3><a name="sec_Interface_Parameters">Interface Parameters</a>
+</h3>
+<table width="100%" class="AltRow FirstColumn" cellspacing="0"><tr class="heading"><td width="40%" align="left"><b>Parameter Source</b>
+</td>
+<td width="25%" align="left"><b>Code Identifier</b>
+</td>
+<td width="25%" align="left"><b>Data Type</b>
+</td>
+<td width="10%" align="right"><b>Dimension</b>
+</td>
+</tr>
+<tr class="even"><td width="40%" align="left"><a href="matlab:rtwprivate('code2model','fir_filter:1')" name="code2model" class="code2model">&lt;S1&gt;/Digital Filter - Lowpass</a></td>
+<td width="25%" align="left">Filter0_P.DigitalFilterLowpass_RTP1COEFF</td>
+<td width="25%" align="left">real_T</td>
+<td width="10%" align="right">[1  17]</td>
+</tr>
+</table>
+<h3><a name="sec_Data_Stores">Data Stores</a>
+</h3>
+<p align="left">No data stores in the model; note that this report lists only data stores with non-auto storage class and global data stores</p>
+</body>
+</html>

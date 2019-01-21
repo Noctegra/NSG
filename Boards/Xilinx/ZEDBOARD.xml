@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<board name="ZYNQ">
+  <parameter name="FAMILY" value="zynq" />
+  <parameter name="DEVICE" value="xc7z020" />
+  <parameter name="PACKAGE" value="clg484" />
+  <parameter name="SPEEDGRADE" value="-1" />
+  <parameter name="BOARDFREQUENCY" value="100 MHz" />
+
+  # Clock pins
+  <io_group name="sys_clk_in" type="clock" property="{IOSTANDARD,LVCMOS18};{DIFF_TERM,TRUE}" >
+    <pin name="sys_clk_p" direction="i" value="Y9" />
+#    <pin name="sys_clk_n" direction="i" value="Y9" />
+  </io_group>
+
+  # Reset pins
+  <io_group name="sys_reset" type="reset" property="{IOSTANDARD,LVCMOS18};{TIG}" >
+    <pin name="sys_reset" direction="i" value="D13" /> # try pushbutton PB1 as reset instead...
+    <pin name="PS_SRSTB" direction="i" value="C9" /> # This should be it, but it does not work...
+  </io_group>
+
+  # LED - pio
+  <io_group name="led" type="pio" property="{IOSTANDARD,LVCMOS33}" >
+    <pin name="LD[0]" direction="o" value="T22" />
+    <pin name="LD[1]" direction="o" value="T21" />
+    <pin name="LD[2]" direction="o" value="U22" />
+    <pin name="LD[3]" direction="o" value="U21" />
+    <pin name="LD[4]" direction="o" value="V22" />
+    <pin name="LD[5]" direction="o" value="W22" />
+    <pin name="LD[6]" direction="o" value="U19" />
+    <pin name="LD[7]" direction="o" value="U14" />  
+  </io_group>
+
+  # Input DIP Switch
+  <io_group name="DIP_Switch" type="pio" property="{IOSTANDARD,LVCMOS33}" >
+    <pin name="SW0" direction="i" value="GF22" />
+    <pin name="SW1" direction="i" value="G22" />
+    <pin name="SW2" direction="i" value="H22" />
+    <pin name="SW3" direction="i" value="F21" />
+    <pin name="SW4" direction="i" value="H19" />
+    <pin name="SW5" direction="i" value="H18" />
+    <pin name="SW6" direction="i" value="H17" />
+    <pin name="SW7" direction="i" value="M15" />
+  </io_group>
+
+  # Input Push Buttons
+  <io_group name="Push_Buttons" type="pio" property="{IOSTANDARD,LVCMOS33}" >
+    <pin name="BTNU" direction="i" value="T18" />
+    <pin name="BTNR" direction="i" value="R18" />
+    <pin name="BTND" direction="i" value="R16" />
+    <pin name="BTNC" direction="i" value="P16" />
+    <pin name="BTNL" direction="i" value="N15" />
+    <pin name="PB1" direction="i"  value="D13" />
+    <pin name="PB2" direction="i"  value="C10" />
+  </io_group>
+
+  # Zynq specific pins
+  <io_group name="Zynq_clk" type="clock" property="{IOSTANDARD,LVDS_25}" >
+    <pin name="PS_CLK" direction="i" value="F7" />
+  </io_group>
+
+  # DDR3 RAM
+  <external_ram type="DRAM" >
+    <io_group name="DDR_CLK" type="CLOCK" property="{IOSTANDARD,LVCMOS15}" >
+      <pin name="DDR_Clk_p" direction="io" value="N4" />
+      <pin name="DDR_Clk_n" direction="io" value="N5" />
+    </io_group>
+    <io_group name="DDR_RESET" type="RESET" property="{IOSTANDARD,LVCMOS15};{TIG}" >
+      <pin name="DDR_DRSTB" direction="io" value="F3" />
+    </io_group>
+    <io_group name="DDR_CTRL" type="CTRL" property="{IOSTANDARD,LVCMOS15}" >
+      <pin name="DDR_CKE" direction="io" value="V3" />
+      <pin name="DDR_CS_n"  direction="io" value="P6" />
+      <pin name="DDR_RAS_n" direction="io" value="R5" />
+      <pin name="DDR_CAS_n" direction="io" value="P3" />
+      <pin name="DDR_WEB"  direction="o" value="R4" />  
+      <pin name="DDR_DQS_p[3]" direction="io" value="V2" /> # PS_DDR_DQS_P[3]
+      <pin name="DDR_DQS_p[2]" direction="io" value="N2" /> # PS_DDR_DQS_P[2]
+      <pin name="DDR_DQS_p[1]" direction="io" value="H2" /> # PS_DDR_DQS_P[1]
+      <pin name="DDR_DQS_p[0]" direction="io" value="C2" /> # PS_DDR_DQS_P[0]
+      <pin name="DDR_DQS_n[3]" direction="io" value="W2" /> # PS_DDR_DQS_N[3]
+      <pin name="DDR_DQS_n[2]" direction="io" value="P2" /> # PS_DDR_DQS_N[2]
+      <pin name="DDR_DQS_n[1]" direction="io" value="J2" /> # PS_DDR_DQS_N[1]
+      <pin name="DDR_DQS_n[0]" direction="io" value="D2" /> # PS_DDR_DQS_N[0]
+      <pin name="DDR_DM[3]" direction="io" value="AA2" /> # PS_DDR_DQS_N[3]
+      <pin name="DDR_DM[2]" direction="io" value="P1" /> # PS_DDR_DQS_N[2]
+      <pin name="DDR_DM[1]" direction="io" value="H3" /> # PS_DDR_DQS_N[1]
+      <pin name="DDR_DM[0]" direction="io" value="B1" /> # PS_DDR_DQS_N[0]
+      <pin name="DDR_ODT" direction="io" value="P5" />
+      <pin name="DDR_VRN" direction="io" value="N7" />
+      <pin name="DDR_VRP" direction="io" value="M7" />
+    </io_group>
+    # Bank Address pins
+    <io_group name="DDR_BankAddr" type="BANK_ADDRESS" property="{IOSTANDARD,LVCMOS15}" >
+      <pin name="DDR_BankAddr[0]" direction="io" value="L7" /> # PS_DDR_BA[0]
+      <pin name="DDR_BankAddr[1]" direction="io" value="L6" /> # PS_DDR_BA[1]
+      <pin name="DDR_BankAddr[2]" direction="io" value="M6" /> # PS_DDR_BA[2]
+    </io_group>
+    <io_group name="DDR_Addr" type="ADDRESS" property="{IOSTANDARD,LVCMOS15}" >
+      <pin name="DDR_Addr[0]" direction="io" value="M4" /> # PS_DDR_A[0]
+      <pin name="DDR_Addr[1]" direction="io" value="M5" /> # PS_DDR_A[1]
+      <pin name="DDR_Addr[2]" direction="io" value="K4" /> # PS_DDR_A[2]
+      <pin name="DDR_Addr[3]" direction="io" value="L4" /> # PS_DDR_A[3]
+      <pin name="DDR_Addr[4]" direction="io" value="K6" /> # PS_DDR_A[4]
+      <pin name="DDR_Addr[5]" direction="io" value="K5" /> # PS_DDR_A[5]
+      <pin name="DDR_Addr[6]" direction="io" value="J7" /> # PS_DDR_A[6]
+      <pin name="DDR_Addr[7]" direction="io" value="J6" /> # PS_DDR_A[7]
+      <pin name="DDR_Addr[8]" direction="io" value="J5" /> # PS_DDR_A[8]
+      <pin name="DDR_Addr[9]" direction="io" value="H5" /> # PS_DDR_A[9]
+      <pin name="DDR_Addr[10]" direction="io" value="J3" /> # PS_DDR_A[10]
+      <pin name="DDR_Addr[11]" direction="io" value="G5" /> # PS_DDR_A[11]
+      <pin name="DDR_Addr[12]" direction="io" value="H4" /> # PS_DDR_A[12]
+      <pin name="DDR_Addr[13]" direction="io" value="F4" /> # PS_DDR_A[13]
+      <pin name="DDR_Addr[14]" direction="io" value="G4" /> # PS_DDR_A[14]
+    </io_group>
+    # data pins
+    <io_group name="DDR_DQ" type="DATA" property="{IOSTANDARD,LVCMOS15}" >
+      <pin name="DDR_DQ[0]" direction="io" value="D1" /> # PS_DDR_DQ[0]
+      <pin name="DDR_DQ[1]" direction="io" value="C3" /> # PS_DDR_DQ[1]
+      <pin name="DDR_DQ[2]" direction="io" value="B2" /> # PS_DDR_DQ[2]
+      <pin name="DDR_DQ[3]" direction="io" value="D3" /> # PS_DDR_DQ[3]
+      <pin name="DDR_DQ[4]" direction="io" value="E3" /> # PS_DDR_DQ[4]
+      <pin name="DDR_DQ[5]" direction="io" value="E1" /> # PS_DDR_DQ[5]
+      <pin name="DDR_DQ[6]" direction="io" value="F2" /> # PS_DDR_DQ[6]
+      <pin name="DDR_DQ[7]" direction="io" value="F1" /> # PS_DDR_DQ[7]
+      <pin name="DDR_DQ[8]" direction="io" value="G2" /> # PS_DDR_DQ[8]
+      <pin name="DDR_DQ[9]" direction="io" value="G1" /> # PS_DDR_DQ[9]
+      <pin name="DDR_DQ[10]" direction="io" value="L1" /> # PS_DDR_DQ[10]
+      <pin name="DDR_DQ[11]" direction="io" value="L2" /> # PS_DDR_DQ[11]
+      <pin name="DDR_DQ[12]" direction="io" value="L3" /> # PS_DDR_DQ[12]
+      <pin name="DDR_DQ[13]" direction="io" value="K1" /> # PS_DDR_DQ[13]
+      <pin name="DDR_DQ[14]" direction="io" value="J1" /> # PS_DDR_DQ[14]
+      <pin name="DDR_DQ[15]" direction="io" value="K3" />  # PS_DDR_DQ[15]
+      <pin name="DDR_DQ[16]" direction="io" value="M1" /> # PS_DDR_DQ[16]
+      <pin name="DDR_DQ[17]" direction="io" value="T3" /> # PS_DDR_DQ[17]
+      <pin name="DDR_DQ[18]" direction="io" value="N3" /> # PS_DDR_DQ[18]
+      <pin name="DDR_DQ[19]" direction="io" value="T1" /> # PS_DDR_DQ[19]
+      <pin name="DDR_DQ[20]" direction="io" value="R3" /> # PS_DDR_DQ[20]
+      <pin name="DDR_DQ[21]" direction="io" value="T2" /> # PS_DDR_DQ[21]
+      <pin name="DDR_DQ[22]" direction="io" value="M2" /> # PS_DDR_DQ[22]
+      <pin name="DDR_DQ[23]" direction="io" value="R1" /> # PS_DDR_DQ[23]
+      <pin name="DDR_DQ[24]" direction="io" value="AA3" /> # PS_DDR_DQ[24]
+      <pin name="DDR_DQ[25]" direction="io" value="U1" /> # PS_DDR_DQ[25]
+      <pin name="DDR_DQ[26]" direction="io" value="AA1" /> # PS_DDR_DQ[26]
+      <pin name="DDR_DQ[27]" direction="io" value="U2" /> # PS_DDR_DQ[27]
+      <pin name="DDR_DQ[28]" direction="io" value="W1" /> # PS_DDR_DQ[28]
+      <pin name="DDR_DQ[29]" direction="io" value="Y3" /> # PS_DDR_DQ[29]
+      <pin name="DDR_DQ[30]" direction="io" value="W3" /> # PS_DDR_DQ[30]
+      <pin name="DDR_DQ[31]" direction="io" value="Y1" /> # PS_DDR_DQ[31]
+    </io_group>
+  </external_ram>
+</board>

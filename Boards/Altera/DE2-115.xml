@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<board name="DE2-115">
+  <parameter name="FAMILY" value="Cyclone IV E" />
+  <parameter name="DEVICE" value="EP4CE115F29C7" />
+  <parameter name="MIN_CORE_JUNCTION_TEMP" value="0" />
+  <parameter name="MAX_CORE_JUNCTION_TEMP" value="85" />
+  <parameter name="NOMINAL_CORE_SUPPLY_VOLTAGE" value="1.2V" />
+  <parameter name="STRATIX_DEVICE_IO_STANDARD" value="2.5 V" />
+  <parameter name="BOARDFREQUENCY" value="50MHz" />
+  # Clock pins
+  <io_group name="sys_clk" type="clock" property="{IOSTANDARD,LVDS_25}" >
+    <pin name="sys_clk" direction="i" value="Y2" />
+  </io_group>
+  # Reset pins
+  <io_group name="sys_reset" type="reset" property="{IOSTANDARD,SSTL15}" >
+    <pin name="reset_n" direction="i" value="M23" />  
+  </io_group>
+  # PLL pins
+  <io_group name="altpll" type="pio" property="{IO_STANDARD,2.5 V}">
+    <pin name="areset_to_the_altpll_0" direction="i" value="AB28" />
+    <pin name="altpll_0_c0_out" direction="o" value="E21" />
+    <pin name="locked_from_the_altpll_0" direction="o" value="E22" />
+    <pin name="phasedone_from_the_altpll_0" direction="o" value="E25" />
+  </io_group>
+  # Input pins
+  <io_group name="Switch" type="pio" property="{IO_STANDARD,2.5 V}">
+    <pin name="SW[0]" direction="i" value="AB28" />
+    <pin name="SW[1]" direction="i" value="AC28" />
+    <pin name="SW[2]" direction="i" value="AC27" />
+    <pin name="SW[3]" direction="i" value="AD27" />
+    <pin name="SW[4]" direction="i" value="AB27" />
+    <pin name="SW[5]" direction="i" value="AC26" />
+    <pin name="SW[6]" direction="i" value="AD26" />
+  </io_group>  
+  # LED pins
+  <io_group name="hex0" type="pio" property="{IO_STANDARD,2.5 V}">
+    <pin name="hex0[0]" direction="o" value="G18" />
+    <pin name="hex0[1]" direction="o" value="F22" />
+    <pin name="hex0[2]" direction="o" value="E17" />
+    <pin name="hex0[3]" direction="o" value="L26" />
+    <pin name="hex0[4]" direction="o" value="L25" />
+    <pin name="hex0[5]" direction="o" value="J22" />
+    <pin name="hex0[6]" direction="o" value="H22" />
+  </io_group>
+    <io_group name="hex1" type="pio" property="{IO_STANDARD,2.5 V}">
+    <pin name="hex1[0]" direction="o" value="M24" />
+    <pin name="hex1[1]" direction="o" value="Y22" />
+    <pin name="hex1[2]" direction="o" value="W21" />
+    <pin name="hex1[3]" direction="o" value="W22" />
+    <pin name="hex1[4]" direction="o" value="W25" />
+    <pin name="hex1[5]" direction="o" value="U23" />
+    <pin name="hex1[6]" direction="o" value="U24" />
+  </io_group>
+    <io_group name="hex2" type="pio" property="{IO_STANDARD,2.5 V}">
+    <pin name="hex2[0]" direction="o" value="AA25" />
+    <pin name="hex2[1]" direction="o" value="AA26" />
+    <pin name="hex2[2]" direction="o" value="Y25" />
+    <pin name="hex2[3]" direction="o" value="W26" />
+    <pin name="hex2[4]" direction="o" value="Y26" />
+    <pin name="hex2[5]" direction="o" value="W27" />
+    <pin name="hex2[6]" direction="o" value="W28" />
+  </io_group>
+    <io_group name="hex3" type="pio" property="{IO_STANDARD,2.5 V}">
+    <pin name="hex3[0]" direction="o" value="V21" />
+    <pin name="hex3[1]" direction="o" value="U21" />
+    <pin name="hex3[2]" direction="o" value="AB20" />
+    <pin name="hex3[3]" direction="o" value="AA21" />
+    <pin name="hex3[4]" direction="o" value="AD24" />
+    <pin name="hex3[5]" direction="o" value="AF23" />
+    <pin name="hex3[6]" direction="o" value="Y19" />
+  </io_group>
+    <io_group name="hex4" type="pio" property="{IO_STANDARD,2.5 V}">
+    <pin name="hex4[0]" direction="o" value="AB19" />
+    <pin name="hex4[1]" direction="o" value="AA19" />
+    <pin name="hex4[2]" direction="o" value="AG21" />
+    <pin name="hex4[3]" direction="o" value="AH21" />
+    <pin name="hex4[4]" direction="o" value="AE19" />
+    <pin name="hex4[5]" direction="o" value="AF19" />
+    <pin name="hex4[6]" direction="o" value="AE18" />
+  </io_group>
+  
+  <io_group name="ledg" type="pio" property="{IO_STANDARD,2.5 V}">
+    <pin name="ledg[0]" direction="o" value="E21" />
+    <pin name="ledg[1]" direction="o" value="E22" />
+    <pin name="ledg[2]" direction="o" value="E25" />
+    <pin name="ledg[3]" direction="o" value="E24" />
+    <pin name="ledg[4]" direction="o" value="H21" />
+    <pin name="ledg[5]" direction="o" value="G20" />
+    <pin name="ledg[6]" direction="o" value="G21" />
+    <pin name="ledg[7]" direction="o" value="F17" />
+  </io_group>
+  <external_ram type="sram" nr="0">
+    <io_group name="address" type="address" property="{}">
+      <pin name="address[0]" direction="o" value="T0"/>
+      <pin name="address[1]" direction="o" value="T1"/>
+      <pin name="address[2]" direction="o" value="T2"/>
+      <pin name="address[3]" direction="o" value="T3"/>
+      <pin name="address[4]" direction="o" value="T4"/>
+      <pin name="address[5]" direction="o" value="T5"/>
+      <pin name="address[6]" direction="o" value="T6"/>
+      <pin name="address[7]" direction="o" value="T7"/>
+      <pin name="address[8]" direction="o" value="T8"/>
+      <pin name="address[9]" direction="o" value="T9"/>
+      <pin name="address[10]" direction="o" value="T10"/>
+      <pin name="address[11]" direction="o" value="T11"/>
+      <pin name="address[12]" direction="o" value="T12"/>
+      <pin name="address[13]" direction="o" value="T13"/>
+      <pin name="address[14]" direction="o" value="T14"/>
+      <pin name="address[15]" direction="o" value="T15"/>
+      <pin name="address[16]" direction="o" value="T16"/>
+      <pin name="address[17]" direction="o" value="T17"/>
+      <pin name="address[18]" direction="o" value="T18"/>
+      <pin name="address[19]" direction="o" value="T19"/>
+    </io_group>
+    <io_group name="CTRL" type="ctrl" property="{}">
+      <pin name="adsc_n" direction="o" value="T20" />
+      <pin name="bw_n[0]"   direction="o" value="Q0" />
+      <pin name="bw_n[1]"   direction="o" value="Q1" />
+      <pin name="bw_n[2]"   direction="o" value="Q2" />
+      <pin name="bw_n[3]"   direction="o" value="Q3" />
+      <pin name="bwe_n"     direction="o" value="Q4" />
+      <pin name="chipenable1_n" direction="o" value="Q5" />
+      <pin name="outputenable_n" direction="o" value="R0" />
+      <pin name="reset_n" direction="o" value="R1" />
+    </io_group>
+    <io_group name="data" type="data" property="{}">
+      <pin name="data[0]" direction="io" value="D0"/>
+      <pin name="data[1]" direction="io" value="D1"/>
+      <pin name="data[2]" direction="io" value="D2"/>
+      <pin name="data[3]" direction="io" value="D3"/>
+      <pin name="data[4]" direction="io" value="D4"/>
+      <pin name="data[5]" direction="io" value="D5"/>
+      <pin name="data[6]" direction="io" value="D6"/>
+      <pin name="data[7]" direction="io" value="D7"/>
+      <pin name="data[8]" direction="io" value="D8"/>
+      <pin name="data[9]" direction="io" value="D9"/>
+      <pin name="data[10]" direction="io" value="D10"/>
+      <pin name="data[11]" direction="io" value="D11"/>
+      <pin name="data[12]" direction="io" value="D12"/>
+      <pin name="data[13]" direction="io" value="D13"/>
+      <pin name="data[14]" direction="io" value="D14"/>
+      <pin name="data[15]" direction="io" value="D15"/>
+      <pin name="data[16]" direction="io" value="D16"/>
+      <pin name="data[17]" direction="io" value="D17"/>
+      <pin name="data[18]" direction="io" value="D18"/>
+      <pin name="data[19]" direction="io" value="D19"/>
+      <pin name="data[20]" direction="io" value="D20"/>
+      <pin name="data[21]" direction="io" value="D21"/>
+      <pin name="data[22]" direction="io" value="D22"/>
+      <pin name="data[23]" direction="io" value="D23"/>
+      <pin name="data[24]" direction="io" value="D24"/>
+      <pin name="data[25]" direction="io" value="D25"/>
+      <pin name="data[26]" direction="io" value="D26"/>
+      <pin name="data[27]" direction="io" value="D27"/>
+      <pin name="data[28]" direction="io" value="D28"/>
+      <pin name="data[29]" direction="io" value="D29"/>
+      <pin name="data[30]" direction="io" value="D30"/>
+      <pin name="data[31]" direction="io" value="D31"/>
+    </io_group>
+  </external_ram>
+</board>

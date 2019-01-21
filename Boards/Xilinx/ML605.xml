@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<board name="ML605">
+  <parameter name="FAMILY" value="virtex6" />
+  <parameter name="DEVICE" value="xc6vlx240t" />
+  <parameter name="PACKAGE" value="ff1156" />
+  <parameter name="SPEEDGRADE" value="-1" />
+  <parameter name="BOARDFREQUENCY" value="200 MHz" />
+
+  # Clock pins
+  <io_group name="sys_clk_in" type="clock" property="{IOSTANDARD,LVDS_25};{DIFF_TERM,TRUE}" >
+    <pin name="sys_clk_p" direction="i" value="J9" />
+    <pin name="sys_clk_n" direction="i" value="H9" />
+  </io_group>
+
+  # Reset pins
+  <io_group name="sys_reset" type="reset" property="{IOSTANDARD,SSTL15};{TIG}" >
+    <pin name="sys_reset" direction="i" value="H10" />  
+  </io_group>
+
+  # RS232 UART
+  <io_group name="RS232_UART" type ="pio" property="{IOSTANDARD,LVCMOS25}" >
+    <pin name="RS232_UART_sin" direction="i" value="J24" />
+    <pin name="RS232_UART_sout" direction="o" value="J25" />  
+  </io_group>
+
+  # LED - pio
+  <io_group name="led" type="pio" property="{IOSTANDARD,LVCMOS25}" >
+    <pin name="led_pin[0]" direction="o" value="AC22" />
+    <pin name="led_pin[1]" direction="o" value="AC24" />
+    <pin name="led_pin[2]" direction="o" value="AE22" />
+    <pin name="led_pin[3]" direction="o" value="AE23" />
+    <pin name="led_pin[4]" direction="o" value="AB23" />
+    <pin name="led_pin[5]" direction="o" value="AG23" />
+    <pin name="led_pin[6]" direction="o" value="AE24" />
+    <pin name="led_pin[7]" direction="o" value="AD24" />  
+  </io_group>
+
+    #### Module LEDs_Positions_GPIO constraints
+    <io_group name="LEDs_Positions" type="pio" property="{IOSTANDARD,LVCMOS15}">
+      <pin name="LEDs_Positions_pin[0]" direction="o" value="AP24" />
+      <pin name="LEDs_Positions_pin[1]" direction="o" value="AD21" />
+      <pin name="LEDs_Positions_pin[2]" direction="o" value="AH28" />
+      <pin name="LEDs_Positions_pin[3]" direction="o" value="AE21" />
+      <pin name="LEDs_Positions_pin[4]" direction="o" value="AH27" />
+    </io_group>
+
+    #### Module Push_Buttons_GPIO constraints
+    <io_group name="Push_Buttons" type="pio" property="{IOSTANDARD,SSTL15_T_DCI}" >
+      <pin name="Push_Buttons_pin[0]" direction="i" value="G26" /> #GPIO PB Center
+      <pin name="Push_Buttons_pin[1]" direction="i" value="H17" /> #GPIO PB West
+      <pin name="Push_Buttons_pin[2]" direction="i" value="A18" /> #GPIO PB South
+      <pin name="Push_Buttons_pin[3]" direction="i" value="G17" /> #GPIO PB East
+      <pin name="Push_Buttons_pin[4]" direction="i" value="A19" /> #GPIO PB North
+    </io_group>
+
+    <io_group name="IIC_EEPROM" type="pio" property="{IOSTANDARD,LVCMOS25};{SLEW,SLOW};{DRIVE,6}">
+      <pin name="IIC_EEPROM_Scl_pin" direction="o" value="AK9" />
+      <pin name="IIC_EEPROM_Sda_pin" direction="o" value="AE9" />
+    </io_group>
+
+  <external_ram type="FLASH" >
+    # Address pins (what about pins 0-6???)
+    <io_group name="ADDRESS" type="ADDRESS" property="{IOSTANDARD,LVCMOS25}" >
+      <pin name="Address[7]" direction="o" value="AA23" />
+      <pin name="Address[8]" direction="o" value="AL9" />
+      <pin name="Address[9]" direction="o" value="AF9" />
+      <pin name="Address[10]" direction="o" value="AF10" />
+      <pin name="Address[11]" direction="o" value="AN9" />
+      <pin name="Address[12]" direction="o" value="AP9" />
+      <pin name="Address[13]" direction="o" value="AG8" />
+      <pin name="Address[14]" direction="o" value="AH8" />
+      <pin name="Address[15]" direction="o" value="F9" />
+      <pin name="Address[16]" direction="o" value="F10" />
+      <pin name="Address[17]" direction="o" value="C10" />
+      <pin name="Address[18]" direction="o" value="D10" />
+      <pin name="Address[19]" direction="o" value="C9" />
+      <pin name="Address[20]" direction="o" value="D9" />
+      <pin name="Address[21]" direction="o" value="A9" />
+      <pin name="Address[22]" direction="o" value="A8" />
+      <pin name="Address[23]" direction="o" value="E8" />
+      <pin name="Address[24]" direction="o" value="E9" />
+      <pin name="Address[25]" direction="o" value="B8" />
+      <pin name="Address[26]" direction="o" value="C8" />
+      <pin name="Address[27]" direction="o" value="AD10" />
+      <pin name="Address[28]" direction="o" value="AC9" />
+      <pin name="Address[29]" direction="o" value="AK8" />
+      <pin name="Address[30]" direction="o" value="AL8" />
+    </io_group>
+    # data pins
+    <io_group name="DATA" type="DATA" property="{IOSTANDARD,LVCMOS25}" >
+      <pin name="Data[0]" direction="io" value="M23" />
+      <pin name="Data[1]" direction="io" value="L24" />
+      <pin name="Data[2]" direction="io" value="F24" />
+      <pin name="Data[3]" direction="io" value="F23" />
+      <pin name="Data[4]" direction="io" value="N23" />
+      <pin name="Data[5]" direction="io" value="N24" />
+      <pin name="Data[6]" direction="io" value="H23" />
+      <pin name="Data[7]" direction="io" value="G23" />
+      <pin name="Data[8]" direction="io" value="R24" />
+      <pin name="Data[9]" direction="io" value="P24" />
+      <pin name="Data[10]" direction="io" value="H25" />
+      <pin name="Data[11]" direction="io" value="H24" />
+      <pin name="Data[12]" direction="io" value="V24" />
+      <pin name="Data[13]" direction="io" value="W24" />
+      <pin name="Data[14]" direction="io" value="AF25" />
+      <pin name="Data[15]" direction="io" value="AF24" />
+    </io_group>
+    # ctrl pins
+    <io_group name="CTRL" type="CTRL" property="{IOSTANDARD,LVCMOS25}">
+      <pin name="CE_N" direction="o" value="AJ12" />
+      <pin name="WE_N" direction="o" value="AF23" />
+      <pin name="OE_N" direction="o" value="AA24" />
+    </io_group>
+  </external_ram>
+  #### Module SysACE_CompactFlash constraints
+  <external_ram type="CompactFlash" >
+    <io_group name="SysACE_CompactFlash_Clock" type="Clock" property="{IOSTANDARD,LVCMOS25};{PERIOD,30000 ps}">
+      <pin name="Clk" direction="i" value="AE16" />
+    </io_group>
+    <io_group name="SysACE_CompactFlash_SysACE_MPA" type="ADDRESS" property="{IOSTANDARD,LVCMOS25}" >
+      <pin name="Address[0]" direction="o" value="AC15" />
+      <pin name="Address[1]" direction="o" value="AP15" />
+      <pin name="Address[2]" direction="o" value="AG17" />
+      <pin name="Address[3]" direction="o" value="AH17" />
+      <pin name="Address[4]" direction="o" value="AG15" />
+      <pin name="Address[5]" direction="o" value="AF15" />
+      <pin name="Address[6]" direction="o" value="AK14" />
+    </io_group>
+    <io_group name="SysACE_CompactFlash_SysACE_MPD" type="DATA" property="{IOSTANDARD,LVCMOS25}" >
+      <pin name="Data[0]" direction="io" value="AM15" />
+      <pin name="Data[1]" direction="io" value="AJ17" />
+      <pin name="Data[2]" direction="io" value="AJ16" />
+      <pin name="Data[3]" direction="io" value="AP16" />
+      <pin name="Data[4]" direction="io" value="AG16" />
+      <pin name="Data[5]" direction="io" value="AH15" />
+      <pin name="Data[6]" direction="io" value="AF16" />
+      <pin name="Data[7]" direction="io" value="AN15" />
+    </io_group>
+    <io_group name="SysACE_CompactFlash_SysACE" type="CTRL" property="{IOSTANDARD,LVCMOS25}" >
+      <pin name="CE_N" direction="o" value="AJ14" />
+      <pin name="OE_N" direction="o" value="AL15" />
+      <pin name="WE_N" direction="o" value="AL14" />
+    </io_group>
+    <io_group name="SysACE_CompactFlash_SysACE_MPIRQ" type="IRQ" property="{IOSTANDARD,LVCMOS25};{TIG}" >
+      <pin name="MPIRQ_pin" direction="i" value="L9" />
+    </io_group>
+  </external_ram>
+  #### Module DIP_Switches_4Bit constraints
+  <io_group name="DIP_Switches" type="pio" property="{IOSTANDARD,SSTL15}" >
+    <pin name="I_pin[0]" direction="i" value="D22" />
+    <pin name="I_pin[1]" direction="i" value="C22" />
+    <pin name="I_pin[2]" direction="i" value="L21" />
+    <pin name="I_pin[3]" direction="i" value="L20" />
+    <pin name="I_pin[4]" direction="i" value="C18" />
+    <pin name="I_pin[5]" direction="i" value="B18" />
+    <pin name="I_pin[6]" direction="i" value="K22" />
+    <pin name="I_pin[7]" direction="i" value="K21" />
+  </io_group>
+  # DDR3 RAM
+  # NET "DDR3_TEMP_EVENT" LOC = "D17"; ## 198 on J1 ??? What is this signal doing? It is not used in the examples ???
+  <external_ram type="DRAM" >
+    # NET "DDR3_CLK0_N" LOC = "H18"; ## 103 on J1
+    # NET "DDR3_CLK0_P" LOC = "G18"; ## 101 on J1
+    # NET "DDR3_CLK1_N" LOC = "L16"; ## 104 on J1
+    # NET "DDR3_CLK1_P" LOC = "K16"; ## 102 on J1
+    <io_group name="DDR_CLK" type="CLOCK" property="{IOSTANDARD,DIFF_SSTL15}" >
+      <pin name="DDR3_Clk_n[0]" direction="io" value="H18" />
+      <pin name="DDR3_Clk_p[0]" direction="io" value="G18" />
+      <pin name="DDR3_Clk_n[1]" direction="io" value="L16" />
+      <pin name="DDR3_Clk_p[1]" direction="io" value="K16" />
+    </io_group>
+    # NET "DDR3_RESET_B" LOC = "E18"; ## 30 on J1
+    <io_group name="DDR3_RESET" type="RESET" property="{IOSTANDARD,LVCMOS15};{TIG}" >
+      <pin name="DDR3_RESET_n" direction="io" value="E18" />
+    </io_group>
+    # NET "DDR3_CKE0" LOC = "M18"; ## 73 on J1
+    # NET "DDR3_CKE1" LOC = "M17"; ## 74 on J1
+    # NET "DDR3_S0_B" LOC = "K18"; ## 114 on J1 ??? Is this a Chip Select signal ???
+    # NET "DDR3_S1_B" LOC = "K17"; ## 121 on J1 ??? Is this a Chip Select signal ???
+    # NET "DDR3_CAS_B" LOC = "C17"; ## 115 on J1
+    # NET "DDR3_RAS_B" LOC = "L19"; ## 110 on J1
+    # NET "DDR3_WE_B" LOC = "B17"; ## 113 on J1
+    # NET "DDR3_DM0" LOC = "E11"; ## 11 on J1
+    # NET "DDR3_DM1" LOC = "B11"; ## 28 on J1
+    # NET "DDR3_DM2" LOC = "E14"; ## 46 on J1
+    # NET "DDR3_DM3" LOC = "D19"; ## 63 on J1
+    # NET "DDR3_DM4" LOC = "B22"; ## 136 on J1
+    # NET "DDR3_DM5" LOC = "A26"; ## 153 on J1
+    # NET "DDR3_DM6" LOC = "A29"; ## 170 on J1
+    # NET "DDR3_DM7" LOC = "A31"; ## 187 on J1
+    # NET "DDR3_ODT0" LOC = "F18"; ## 116 on J1
+    # NET "DDR3_ODT1" LOC = "E17"; ## 120 on J1
+    <io_group name="DDR3_CTRL" type="CTRL" property="{IOSTANDARD,SSTL15}" >
+      <pin name="DDR3_CKE[0]" direction="io" value="M18" />
+      <pin name="DDR3_CKE[1]" direction="io" value="M17" />
+      #<pin name="DDR3_CS_n"  direction="io" value="?" />
+      <pin name="DDR3_CS_n[0]"  direction="io" value="K18" />
+      <pin name="DDR3_CS_n[1]"  direction="io" value="K17" />
+      <pin name="DDR3_RAS_n" direction="io" value="L19" />
+      <pin name="DDR3_CAS_n" direction="io" value="C17" />
+      <pin name="DDR3_WE_n"  direction="o" value="B17" />
+      <pin name="DDR3_DM[0]" direction="io" value="E11" />
+      <pin name="DDR3_DM[1]" direction="io" value="B11" />
+      <pin name="DDR3_DM[2]" direction="io" value="E14" />
+      <pin name="DDR3_DM[3]" direction="io" value="D19" />
+      <pin name="DDR3_DM[4]" direction="io" value="B22" />
+      <pin name="DDR3_DM[5]" direction="io" value="A26" />
+      <pin name="DDR3_DM[6]" direction="io" value="A29" />
+      <pin name="DDR3_DM[7]" direction="io" value="A31" />
+      <pin name="DDR3_ODT[0]" direction="io" value="F18" />
+      <pin name="DDR3_ODT[1]" direction="io" value="E17" />
+      # <pin name="DDR_VRN" direction="io" value="?" />
+      # <pin name="DDR_VRP" direction="io" value="?" />
+    </io_group>
+    # Bank Address pins
+    # NET "DDR3_BA0" LOC = "K19"; ## 109 on J1
+    # NET "DDR3_BA1" LOC = "J19"; ## 108 on J1
+    # NET "DDR3_BA2" LOC = "L15"; ## 79 on J1
+    <io_group name="DDR_BA" type="BANK_ADDRESS" property="{IOSTANDARD,SSTL15}" >
+      <pin name="DDR3_BA[0]" direction="io" value="K19" />
+      <pin name="DDR3_BA[1]" direction="io" value="J19" />
+      <pin name="DDR3_BA[2]" direction="io" value="L15" />
+    </io_group>
+    # Address pins
+    # NET "DDR3_A0" LOC = "L14"; ## 98 on J1
+    # NET "DDR3_A1" LOC = "A16"; ## 97 on J1
+    # NET "DDR3_A2" LOC = "B16"; ## 96 on J1
+    # NET "DDR3_A3" LOC = "E16"; ## 95 on J1
+    # NET "DDR3_A4" LOC = "D16"; ## 92 on J1
+    # NET "DDR3_A5" LOC = "J17"; ## 91 on J1
+    # NET "DDR3_A6" LOC = "A15"; ## 90 on J1
+    # NET "DDR3_A7" LOC = "B15"; ## 86 on J1
+    # NET "DDR3_A8" LOC = "G15"; ## 89 on J1
+    # NET "DDR3_A9" LOC = "F15"; ## 85 on J1
+    # NET "DDR3_A10" LOC = "M16"; ## 107 on J1
+    # NET "DDR3_A11" LOC = "M15"; ## 84 on J1
+    # NET "DDR3_A12" LOC = "H15"; ## 83 on J1
+    # NET "DDR3_A13" LOC = "J15"; ## 119 on J1
+    # NET "DDR3_A14" LOC = "D15"; ## 80 on J1
+    # NET "DDR3_A15" LOC = "C15"; ## 78 on J1
+    <io_group name="DDR3_Addr" type="ADDRESS" property="{IOSTANDARD,SSTL15}" >
+      <pin name="DDR3_Addr[0]" direction="io" value="L14" />
+      <pin name="DDR3_Addr[1]" direction="io" value="A16" />
+      <pin name="DDR3_Addr[2]" direction="io" value="B16" />
+      <pin name="DDR3_Addr[3]" direction="io" value="E16" />
+      <pin name="DDR3_Addr[4]" direction="io" value="D16" />
+      <pin name="DDR3_Addr[5]" direction="io" value="J17" />
+      <pin name="DDR3_Addr[6]" direction="io" value="A15" />
+      <pin name="DDR3_Addr[7]" direction="io" value="B15" />
+      <pin name="DDR3_Addr[8]" direction="io" value="G15" />
+      <pin name="DDR3_Addr[9]" direction="io" value="F15" />
+      <pin name="DDR3_Addr[10]" direction="io" value="M16" />
+      <pin name="DDR3_Addr[11]" direction="io" value="M15" />
+      <pin name="DDR3_Addr[12]" direction="io" value="H15" />
+      <pin name="DDR3_Addr[13]" direction="io" value="J15" />
+      <pin name="DDR3_Addr[14]" direction="io" value="D15" />
+      <pin name="DDR3_Addr[15]" direction="io" value="C15" />
+    </io_group>
+    # data pins
+    #  NET "DDR3_D0" LOC = "J11"; ## 5 on J1
+    #  NET "DDR3_D1" LOC = "E13"; ## 7 on J1
+    #  NET "DDR3_D2" LOC = "F13"; ## 15 on J1
+    #  NET "DDR3_D3" LOC = "K11"; ## 17 on J1
+    #  NET "DDR3_D4" LOC = "L11"; ## 4 on J1
+    #  NET "DDR3_D5" LOC = "K13"; ## 6 on J1
+    #  NET "DDR3_D6" LOC = "K12"; ## 16 on J1
+    #  NET "DDR3_D7" LOC = "D11"; ## 18 on J1
+    #  NET "DDR3_D8" LOC = "M13"; ## 21 on J1
+    #  NET "DDR3_D9" LOC = "J14"; ## 23 on J1
+    #  NET "DDR3_D10" LOC = "B13"; ## 33 on J1
+    #  NET "DDR3_D11" LOC = "B12"; ## 35 on J1
+    #  NET "DDR3_D12" LOC = "G10"; ## 22 on J1
+    #  NET "DDR3_D13" LOC = "M11"; ## 24 on J1
+    #  NET "DDR3_D14" LOC = "C12"; ## 34 on J1
+    #  NET "DDR3_D15" LOC = "A11"; ## 36 on J1
+    #  NET "DDR3_D16" LOC = "G11"; ## 39 on J1
+    #  NET "DDR3_D17" LOC = "F11"; ## 41 on J1
+    #  NET "DDR3_D18" LOC = "D14"; ## 51 on J1
+    #  NET "DDR3_D19" LOC = "C14"; ## 53 on J1
+    #  NET "DDR3_D20" LOC = "G12"; ## 40 on J1
+    #  NET "DDR3_D21" LOC = "G13"; ## 42 on J1
+    #  NET "DDR3_D22" LOC = "F14"; ## 50 on J1
+    #  NET "DDR3_D23" LOC = "H14"; ## 52 on J1
+    #  NET "DDR3_D24" LOC = "C19"; ## 57 on J1
+    #  NET "DDR3_D25" LOC = "G20"; ## 59 on J1
+    #  NET "DDR3_D26" LOC = "E19"; ## 67 on J1
+    #  NET "DDR3_D27" LOC = "F20"; ## 69 on J1
+    #  NET "DDR3_D28" LOC = "A20"; ## 56 on J1
+    #  NET "DDR3_D29" LOC = "A21"; ## 58 on J1
+    #  NET "DDR3_D30" LOC = "E22"; ## 68 on J1
+    #  NET "DDR3_D31" LOC = "E23"; ## 70 on J1
+    #  NET "DDR3_D32" LOC = "G21"; ## 129 on J1
+    #  NET "DDR3_D33" LOC = "B21"; ## 131 on J1
+    #  NET "DDR3_D34" LOC = "A23"; ## 141 on J1
+    #  NET "DDR3_D35" LOC = "A24"; ## 143 on J1
+    #  NET "DDR3_D36" LOC = "C20"; ## 130 on J1
+    #  NET "DDR3_D37" LOC = "D20"; ## 132 on J1
+    #  NET "DDR3_D38" LOC = "J20"; ## 140 on J1
+    #  NET "DDR3_D39" LOC = "G22"; ## 142 on J1
+    #  NET "DDR3_D40" LOC = "D26"; ## 147 on J1
+    #  NET "DDR3_D41" LOC = "F26"; ## 149 on J1
+    #  NET "DDR3_D42" LOC = "B26"; ## 157 on J1
+    #  NET "DDR3_D43" LOC = "E26"; ## 159 on J1
+    #  NET "DDR3_D44" LOC = "C24"; ## 146 on J1
+    #  NET "DDR3_D45" LOC = "D25"; ## 148 on J1
+    #  NET "DDR3_D46" LOC = "D27"; ## 158 on J1
+    #  NET "DDR3_D47" LOC = "C25"; ## 160 on J1
+    #  NET "DDR3_D48" LOC = "C27"; ## 163 on J1
+    #  NET "DDR3_D49" LOC = "B28"; ## 165 on J1
+    #  NET "DDR3_D50" LOC = "D29"; ## 175 on J1
+    #  NET "DDR3_D51" LOC = "B27"; ## 177 on J1
+    #  NET "DDR3_D52" LOC = "G27"; ## 164 on J1
+    #  NET "DDR3_D53" LOC = "A28"; ## 166 on J1
+    #  NET "DDR3_D54" LOC = "E24"; ## 174 on J1
+    #  NET "DDR3_D55" LOC = "G25"; ## 176 on J1
+    #  NET "DDR3_D56" LOC = "F28"; ## 181 on J1
+    #  NET "DDR3_D57" LOC = "B31"; ## 183 on J1
+    #  NET "DDR3_D58" LOC = "H29"; ## 191 on J1
+    #  NET "DDR3_D59" LOC = "H28"; ## 193 on J1
+    #  NET "DDR3_D60" LOC = "B30"; ## 180 on J1
+    #  NET "DDR3_D61" LOC = "A30"; ## 182 on J1
+    #  NET "DDR3_D62" LOC = "E29"; ## 192 on J1
+    #  NET "DDR3_D63" LOC = "F29"; ## 194 on J1
+    # NET "DDR3_DQS0_N" LOC = "E12"; ## 10 on J1
+    # NET "DDR3_DQS0_P" LOC = "D12"; ## 12 on J1
+    # NET "DDR3_DQS1_N" LOC = "J12"; ## 27 on J1
+    # NET "DDR3_DQS1_P" LOC = "H12"; ## 29 on J1
+    # NET "DDR3_DQS2_N" LOC = "A14"; ## 45 on J1
+    # NET "DDR3_DQS2_P" LOC = "A13"; ## 47 on J1
+    # NET "DDR3_DQS3_N" LOC = "H20"; ## 62 on J1
+    # NET "DDR3_DQS3_P" LOC = "H19"; ## 64 on J1
+    # NET "DDR3_DQS4_N" LOC = "C23"; ## 135 on J1
+    # NET "DDR3_DQS4_P" LOC = "B23"; ## 137 on J1
+    # NET "DDR3_DQS5_N" LOC = "A25"; ## 152 on J1
+    # NET "DDR3_DQS5_P" LOC = "B25"; ## 154 on J1
+    # NET "DDR3_DQS6_N" LOC = "G28"; ## 169 on J1
+    # NET "DDR3_DQS6_P" LOC = "H27"; ## 171 on J1
+    # NET "DDR3_DQS7_N" LOC = "D30"; ## 186 on J1
+    # NET "DDR3_DQS7_P" LOC = "C30"; ## 188 on J1
+    <io_group name="DDR3_DQ" type="DATA" property="{IOSTANDARD,DIFF_SSTL15_T_DCI}" >
+      <pin name="DDR3_DQS_n[0]" direction="io" value="E12" />
+      <pin name="DDR3_DQS_p[0]" direction="io" value="D12" />
+      <pin name="DDR3_DQS_n[1]" direction="io" value="J12" />
+      <pin name="DDR3_DQS_p[1]" direction="io" value="H12" />
+      <pin name="DDR3_DQS_n[2]" direction="io" value="A14" />
+      <pin name="DDR3_DQS_p[2]" direction="io" value="A13" />
+      <pin name="DDR3_DQS_n[3]" direction="io" value="H20" />
+      <pin name="DDR3_DQS_p[3]" direction="io" value="H19" />
+      <pin name="DDR3_DQS_n[4]" direction="io" value="C23" />
+      <pin name="DDR3_DQS_p[4]" direction="io" value="B23" />
+      <pin name="DDR3_DQS_n[5]" direction="io" value="A25" />
+      <pin name="DDR3_DQS_p[5]" direction="io" value="B25" />
+      <pin name="DDR3_DQS_n[6]" direction="io" value="G28" />
+      <pin name="DDR3_DQS_p[6]" direction="io" value="H27" />
+      <pin name="DDR3_DQS_n[7]" direction="io" value="D30" />
+      <pin name="DDR3_DQS_p[7]" direction="io" value="C30" />
+      <pin name="DDR3_DQ[0]" direction="io" value="J11" />
+      <pin name="DDR3_DQ[1]" direction="io" value="E13" />
+      <pin name="DDR3_DQ[2]" direction="io" value="F13" />
+      <pin name="DDR3_DQ[3]" direction="io" value="K11" />
+      <pin name="DDR3_DQ[4]" direction="io" value="L11" />
+      <pin name="DDR3_DQ[5]" direction="io" value="K13" />
+      <pin name="DDR3_DQ[6]" direction="io" value="K12" />
+      <pin name="DDR3_DQ[7]" direction="io" value="D11" />
+      <pin name="DDR3_DQ[8]" direction="io" value="M13" />
+      <pin name="DDR3_DQ[9]" direction="io" value="J14" />
+      <pin name="DDR3_DQ[10]" direction="io" value="B13" />
+      <pin name="DDR3_DQ[11]" direction="io" value="B12" />
+      <pin name="DDR3_DQ[12]" direction="io" value="G10" />
+      <pin name="DDR3_DQ[13]" direction="io" value="M11" />
+      <pin name="DDR3_DQ[14]" direction="io" value="C12" />
+      <pin name="DDR3_DQ[15]" direction="io" value="A11" />
+      <pin name="DDR3_DQ[16]" direction="io" value="G11" />
+      <pin name="DDR3_DQ[17]" direction="io" value="F11" />
+      <pin name="DDR3_DQ[18]" direction="io" value="D14" />
+      <pin name="DDR3_DQ[19]" direction="io" value="C14" />
+      <pin name="DDR3_DQ[20]" direction="io" value="G12" />
+      <pin name="DDR3_DQ[21]" direction="io" value="G13" />
+      <pin name="DDR3_DQ[22]" direction="io" value="F14" />
+      <pin name="DDR3_DQ[23]" direction="io" value="H14" />
+      <pin name="DDR3_DQ[24]" direction="io" value="C19" />
+      <pin name="DDR3_DQ[25]" direction="io" value="G20" />
+      <pin name="DDR3_DQ[26]" direction="io" value="E19" />
+      <pin name="DDR3_DQ[27]" direction="io" value="F20" />
+      <pin name="DDR3_DQ[28]" direction="io" value="A20" />
+      <pin name="DDR3_DQ[29]" direction="io" value="A21" />
+      <pin name="DDR3_DQ[30]" direction="io" value="E22" />
+      <pin name="DDR3_DQ[31]" direction="io" value="E23" />
+      <pin name="DDR3_DQ[32]" direction="io" value="G21" />
+      <pin name="DDR3_DQ[33]" direction="io" value="B21" />
+      <pin name="DDR3_DQ[34]" direction="io" value="A23" />
+      <pin name="DDR3_DQ[35]" direction="io" value="A24" />
+      <pin name="DDR3_DQ[36]" direction="io" value="C20" />
+      <pin name="DDR3_DQ[37]" direction="io" value="D20" />
+      <pin name="DDR3_DQ[38]" direction="io" value="J20" />
+      <pin name="DDR3_DQ[39]" direction="io" value="G22" />
+      <pin name="DDR3_DQ[40]" direction="io" value="D26" />
+      <pin name="DDR3_DQ[41]" direction="io" value="F26" />
+      <pin name="DDR3_DQ[42]" direction="io" value="B26" />
+      <pin name="DDR3_DQ[43]" direction="io" value="E26" />
+      <pin name="DDR3_DQ[44]" direction="io" value="C24" />
+      <pin name="DDR3_DQ[45]" direction="io" value="D25" />
+      <pin name="DDR3_DQ[46]" direction="io" value="D27" />
+      <pin name="DDR3_DQ[47]" direction="io" value="C25" />
+      <pin name="DDR3_DQ[48]" direction="io" value="C27" />
+      <pin name="DDR3_DQ[49]" direction="io" value="B28" />
+      <pin name="DDR3_DQ[50]" direction="io" value="D29" />
+      <pin name="DDR3_DQ[51]" direction="io" value="B27" />
+      <pin name="DDR3_DQ[52]" direction="io" value="G27" />
+      <pin name="DDR3_DQ[53]" direction="io" value="A28" />
+      <pin name="DDR3_DQ[54]" direction="io" value="E24" />
+      <pin name="DDR3_DQ[55]" direction="io" value="G25" />
+      <pin name="DDR3_DQ[56]" direction="io" value="F28" />
+      <pin name="DDR3_DQ[57]" direction="io" value="B31" />
+      <pin name="DDR3_DQ[58]" direction="io" value="H29" />
+      <pin name="DDR3_DQ[59]" direction="io" value="H28" />
+      <pin name="DDR3_DQ[60]" direction="io" value="B30" />
+      <pin name="DDR3_DQ[61]" direction="io" value="A30" />
+      <pin name="DDR3_DQ[62]" direction="io" value="E29" />
+      <pin name="DDR3_DQ[63]" direction="io" value="F29" />
+    </io_group>
+  </external_ram>
+</board>

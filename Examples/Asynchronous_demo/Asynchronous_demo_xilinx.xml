@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system name="Asynchronous_demo" >
+   <parameter name="targetDirectory" value="$(ForSyDe_Path)/FPGA_Designs/Xilinx/Asynchronous_demo" />
+   <parameter name="targetManufacturer" value="Xilinx" />
+   <parameter name="targetManufacturerVersion" value="2018.2" />
+   <parameter name="targetToolPath" value="C:/XILINX" />
+   <parameter name="boardType" value="ZEDBOARD" />
+   <parameter name="PLL_ratio" value="1:1" />
+   <hardware>
+      <noc>
+         <parameter name="nocType" value="Mesh" />
+         <parameter name="nocKind" value="2DNoC" />
+         <parameter name="nrofCols" value="2" />
+         <parameter name="nrofRows" value="2" />
+         <parameter name="LayoutMethod" value="Floating" />
+         <parameter name="switchType" value="Nostrum_TDN" />
+         <parameter name="rniType" value="Asynchronous" />
+         <parameter name="NrOfRecvChannels" value="4" />
+         <parameter name="NrOfSendChannels" value="4" />
+         <parameter name="FrameSize" value="4" />
+         <parameter name="FlitWidth" value="32" />
+         <parameter name="FlitInjectionRate" value="1:4" />
+         <parameter name="Heartbeat" value="20 kHz" />
+         <parameter name="ResetTime" value="100 us" />
+         <parameter name="TDN" value="{15,15,15,15}" />
+      </noc>
+      <node nr="0" mem_size="8192" jtag="yes" perf_counter="no" pio="{o,1}" noc_irq="no" cpu="{uBlaze,tiny}" />
+      <node nr="1" mem_size="8192" jtag="yes" perf_counter="no" pio="{o,1}" noc_irq="no" cpu="{uBlaze,tiny}" />
+      <node nr="2" mem_size="8192" jtag="yes" perf_counter="no" pio="{o,1}" noc_irq="no" cpu="{uBlaze,tiny}" />
+      <node nr="3" mem_size="8192" jtag="yes" perf_counter="no" pio="{o,1}" noc_irq="no" cpu="{uBlaze,tiny}" />
+   </hardware>
+   <software>
+      <parameter name="Repository" value="$(ForSyDe_Path)/Examples/Asynchronous_demo" />
+      <process name="p0" node="0" cpu="0" moc="Synchronous" sources="{p4}" targets="{p1}" files="{p0.c}" />
+      <process name="p1" node="1" cpu="0" moc="Asynchronous" sources="{p0}" targets="{p2}" files="{p1.c}" />
+      <process name="p2" node="3" cpu="0" moc="Asynchronous" sources="{p1}" targets="{p3}" files="{p2.c}" />
+      <process name="p3" node="2" cpu="0" moc="Asynchronous" sources="{p2}" targets="{p5}" files="{p3.c}" />
+      <process name="p4" node="0" cpu="0" moc="Asynchronous" sources="{p5}" targets="{p0}" files="{p4.c}" />
+      <process name="p5" node="0" cpu="0" moc="Asynchronous" sources="{p3}" targets="{p4}" files="{p5.c}" />
+   </software>
+</system>

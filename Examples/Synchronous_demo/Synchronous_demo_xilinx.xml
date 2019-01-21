@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system name="Synchronous_demo" >
+   <parameter name="targetDirectory" value="$(ForSyDe_Path)/FPGA_Designs/Synchronous_demo" />
+   <parameter name="targetManufacturer" value="Xilinx" />
+   <parameter name="targetManufacturerVersion" value="2018.2" />
+   <parameter name="targetToolPath" value="C:/XILINX" />
+   <parameter name="boardType" value="ZEDBOARD" />
+   <parameter name="PLL_ratio" value="1:1" />
+   <hardware>
+      <connect node="0" unit="(pio,0)" to="{led_pin[0]}" />
+      <connect node="1" unit="(pio,0)" to="{led_pin[1]}" />
+      <connect node="2" unit="(pio,0)" to="{led_pin[2]}" />
+      <connect node="3" unit="(pio,0)" to="{led_pin[3]}" />
+      <noc>
+         <parameter name="nocType" value="Mesh" />
+         <parameter name="nocKind" value="2DNoC" />
+         <parameter name="nrofCols" value="2" />
+         <parameter name="nrofRows" value="2" />
+         <parameter name="LayoutMethod" value="Floating" />
+         <parameter name="switchType" value="Nostrum" />
+         <parameter name="rniType" value="Heartbeat" />
+         <parameter name="NrOfRecvChannels" value="Minimize" />
+         <parameter name="NrOfSendChannels" value="Minimize" />
+         <parameter name="FrameSize" value="4" />
+         <parameter name="FlitWidth" value="32" />
+         <parameter name="FlitInjectionRate" value="1:4" />
+         <parameter name="Heartbeat" value="100 kHz" />
+         <parameter name="Reset" value="100 us" />
+      </noc>
+      <node nr="0" mem_size="8192" jtag="yes" perf_counter="no" pio="{o,32}" noc_irq="no" cpu="{uBlaze,tiny}" />
+      <node nr="1" mem_size="8192" jtag="yes" perf_counter="no" pio="{o,1}" noc_irq="no" cpu="{uBlaze,tiny}" />
+      <node nr="2" mem_size="8192" jtag="yes" perf_counter="no" pio="{o,1}" noc_irq="no" cpu="{uBlaze,tiny}" />
+      <node nr="3" mem_size="8192" jtag="yes" perf_counter="no" pio="{o,1}" noc_irq="no" cpu="{uBlaze,tiny}" />
+   </hardware>
+   <software>
+      <parameter name="Repository" value="$(ForSyDe_Path)/Examples/Synchronous_demo" />
+      <process name="p0" node="0" cpu="0" moc="Synchronous" sources="{p3}" targets="{p1}" files="{p0.c}" />
+      <process name="p1" node="1" cpu="0" moc="Synchronous" sources="{p0}" targets="{p2}" files="{p1.c}" />
+      <process name="p2" node="3" cpu="0" moc="Synchronous" sources="{p1}" targets="{p3}" files="{p2.c}" />
+      <process name="p3" node="2" cpu="0" moc="Synchronous" sources="{p2}" targets="{p0}" files="{p3.c}" />
+   </software>
+</system>

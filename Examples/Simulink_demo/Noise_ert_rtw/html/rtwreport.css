@@ -1,0 +1,76 @@
+/* Copyright 2011-2012 The MathWorks, Inc. */
+body,p,table {font-family: calibri, verdana, sans-serif;}
+button,.buton {font-family: calibri, verdana, sans-serif;}  
+button,.button {font-size: small;}
+h1 { font-weight: normal; color: #000066; }
+td { vertical-align: top }
+th { background-color: #eeeeee; text-align: left; }
+a:link { color: #0033cc; }
+a:visited { color: #666666; }
+input { font-family: sans-serif, verdana, calibri; }
+table {
+  background-color: #ffffff;
+  width: 100%;
+}
+
+table.toc, table.button, table.panel {
+  border-style: none;
+}
+
+.highlighted {
+    background-color: yellow;
+}
+
+.highlightedCurrent {
+    background-color: #819FF7;
+}
+
+input.search {
+    background-color: #ffffff;
+}
+
+input.failedSearch {
+    background-color: #F78181;
+}
+
+/* ensure that code2model links are comment green */
+a.code2model:link {
+    color: #117755;
+    font-style: italic;
+}
+a.code2model:visited{
+    color: #117755;
+    font-style: italic;
+}
+
+.toc td, .button td, .panel td {
+  border-style: none;
+  padding: 4px;
+}
+
+h1 { font-weight: normal; color: #000066; }
+td { vertical-align: top }
+th { background-color: #eeeeee; text-align: left; }
+a:link { color: #0033cc; }
+a:visited { color: #666666; }
+
+/******* table *******/
+/* default table style */
+table.AltRow {
+    border-collapse: collapse; border: none; border-spacing: 0pt;
+    border-top: solid #4F81BD 1.0pt; border-bottom: solid #4F81BD 1.0pt;
+}
+table.AltRow td { padding: 2pt }
+/* default alternating row style */
+table.AltRow tr.even td { background-color:#D3DFEE; border:none;}
+table.AltRow tr.odd td { background-color:#FFFFFF; border:none;}
+/* tr class="heading" */
+table.AltRow tr.heading td, table.AltRow th {
+  background-color:#FFFFFF; font-weight:bold; border:none;
+  border-bottom: solid #4F81BD 1.0pt;
+}
+/* table class="FirstColumn" */
+table.FirstColumn td:first-child { font-weight:bold }
+/* table class="TotalRow" */
+table.TotalRow tr:last-child { font-weight:bold }
+table.TotalRow tr:last-child td { border-top: solid #4F81BD 1.0pt }

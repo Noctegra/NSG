@@ -1,0 +1,146 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>RTW Report - Source.c</title>
+<style> .LN { font-style: italic; color: #888888 } </style>
+<style> .CT { font-style: italic; color: #117755 } </style>
+<style> .PP { font-style: bold;   color: #992211 } </style>
+<style> .KW { font-style: bold;   color: #112266 } </style>
+<style> .DT { font-style: bold;   color: #112266 } </style>
+<link rel="stylesheet" type="text/css" href="rtwreport.css"></link><script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script>
+<SCRIPT type="text/javascript" src="rtwannotate.js"></SCRIPT>
+</head>
+<body bgcolor="#eeeeee" text="#1122aa" onload="try {if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window.document); else local_onload();}} catch(err) {};if (typeof rtwannotate === 'function') {rtwannotate('Source_c_cov.xml');}">
+<p>
+<table border="0" cellspacing="0" cellpadding="6" width="100%%" height="100%%"><tr><td width="100%%" valign="top" bgcolor="#ffffff">
+<h4>File: <a href="../Source.c" target="rtwreport_document_frame" id="linkToText_plain">Source.c</a></h4>
+<pre id="RTWcode">
+<span><a class="LN" name="1">    1   </a><span class="CT">/*</span>
+</span><span><a class="LN" name="2">    2   </a><span class="CT"> * File: Source.c</span>
+</span><span><a class="LN" name="3">    3   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="4">    4   </a><span class="CT"> * Code generated for Simulink model 'Source'.</span>
+</span><span><a class="LN" name="5">    5   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="6">    6   </a><span class="CT"> * Model version                  : 1.32</span>
+</span><span><a class="LN" name="7">    7   </a><span class="CT"> * Simulink Coder version         : 8.4 (R2013a) 13-Feb-2013</span>
+</span><span><a class="LN" name="8">    8   </a><span class="CT"> * TLC version                    : 8.4 (Jan 19 2013)</span>
+</span><span><a class="LN" name="9">    9   </a><span class="CT"> * C/C++ source code generated on : Thu Apr 03 23:17:23 2014</span>
+</span><span><a class="LN" name="10">   10   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="11">   11   </a><span class="CT"> * Target selection: ert.tlc</span>
+</span><span><a class="LN" name="12">   12   </a><span class="CT"> * Embedded hardware selection: 32-bit Generic</span>
+</span><span><a class="LN" name="13">   13   </a><span class="CT"> * Code generation objectives: Unspecified</span>
+</span><span><a class="LN" name="14">   14   </a><span class="CT"> * Validation result: Not run</span>
+</span><span><a class="LN" name="15">   15   </a><span class="CT"> */</span>
+</span><span><a class="LN" name="16">   16   </a>
+</span><span><a class="LN" name="17">   17   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&quot;Source.h&quot;</font>
+</span><span><a class="LN" name="18">   18   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&quot;Source_private.h&quot;</font>
+</span><span><a class="LN" name="19">   19   </a>
+</span><span><a class="LN" name="20">   20   </a><span class="CT">/* Block states (auto storage) */</span>
+</span><span><a class="LN" name="21">   21   </a><a href="Source_h.html#type_D_Work_Source" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_D_Work_Source');" target="rtwreport_document_frame"><font color="#1122aa">D_Work_Source</font></a> <a name="var_Source_DWork">Source_DWork</a>;
+</span><span><a class="LN" name="22">   22   </a>
+</span><span><a class="LN" name="23">   23   </a><span class="CT">/* External outputs (root outports fed by signals with auto storage) */</span>
+</span><span><a class="LN" name="24">   24   </a><a href="Source_h.html#type_ExternalOutputs_Source" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_ExternalOutputs_Source');" target="rtwreport_document_frame"><font color="#1122aa">ExternalOutputs_Source</font></a> <a name="var_Source_Y">Source_Y</a>;
+</span><span><a class="LN" name="25">   25   </a>
+</span><span><a class="LN" name="26">   26   </a><span class="CT">/* Real-time model */</span>
+</span><span><a class="LN" name="27">   27   </a><a href="Source_types_h.html#type_RT_MODEL_Source" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_RT_MODEL_Source');" target="rtwreport_document_frame"><font color="#1122aa">RT_MODEL_Source</font></a> <a name="var_Source_M_">Source_M_</a>;
+</span><span><a class="LN" name="28">   28   </a><a href="Source_types_h.html#type_RT_MODEL_Source" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_RT_MODEL_Source');" target="rtwreport_document_frame"><font color="#1122aa">RT_MODEL_Source</font></a> *<span class="DT">const</span> <a name="var_Source_M">Source_M</a> = &amp;<a href="#var_Source_M_" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_M_');" target="rtwreport_document_frame"><font color="#1122aa">Source_M_</font></a>;
+</span><span><a class="LN" name="29">   29   </a>
+</span><span><a class="LN" name="30">   30   </a><span class="CT">/* Model step function */</span>
+</span><span><a class="LN" name="31">   31   </a><span class="DT">void</span> <a name="fcn_Source_step">Source_step</a>(<span class="DT">void</span>)
+</span><span><a class="LN" name="32">   32   </a><b>{</b>
+</span><span><a class="LN" name="33">   33   </a>  <span class="CT">/* Outport: '&lt;Root&gt;/Out1' incorporates:</span>
+</span><span><a class="LN" name="34">   34   </a><span class="CT">   *  S-Function (sdspsine2): '<a href="matlab:rtwprivate('code2model','fir_filter:6')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Sine Wave1</i></font></a>'</span>
+</span><span><a class="LN" name="35">   35   </a><span class="CT">   */</span>
+</span><span><a class="LN" name="36">   36   </a>  <a href="#var_Source_Y" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_Y');" target="rtwreport_document_frame"><font color="#1122aa">Source_Y</font></a>.Out1 = <a href="Source_data_c.html#var_Source_P" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_P');" target="rtwreport_document_frame"><font color="#1122aa">Source_P</font></a>.SineWave1_Amplitude * sin
+</span><span><a class="LN" name="37">   37   </a>    (<a href="#var_Source_DWork" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_DWork');" target="rtwreport_document_frame"><font color="#1122aa">Source_DWork</font></a>.SineWave1_AccFreqNorm);
+</span><span><a class="LN" name="38">   38   </a>
+</span><span><a class="LN" name="39">   39   </a>  <span class="CT">/* S-Function (sdspsine2): '<a href="matlab:rtwprivate('code2model','fir_filter:6')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Sine Wave1</i></font></a>' */</span>
+</span><span><a class="LN" name="40">   40   </a>  <span class="CT">/* Update accumulated normalized freq value</span>
+</span><span><a class="LN" name="41">   41   </a><span class="CT">     for next sample.  Keep in range [0 2*pi) */</span>
+</span><span><a class="LN" name="42">   42   </a>  <a href="#var_Source_DWork" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_DWork');" target="rtwreport_document_frame"><font color="#1122aa">Source_DWork</font></a>.SineWave1_AccFreqNorm += <a href="Source_data_c.html#var_Source_P" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_P');" target="rtwreport_document_frame"><font color="#1122aa">Source_P</font></a>.SineWave1_Frequency *
+</span><span><a class="LN" name="43">   43   </a>    0.0062831853071795866;
+</span><span><a class="LN" name="44">   44   </a>  <span class="KW">if</span> (<a href="#var_Source_DWork" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_DWork');" target="rtwreport_document_frame"><font color="#1122aa">Source_DWork</font></a>.SineWave1_AccFreqNorm &gt;= 6.2831853071795862) <b>{</b>
+</span><span><a class="LN" name="45">   45   </a>    <a href="#var_Source_DWork" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_DWork');" target="rtwreport_document_frame"><font color="#1122aa">Source_DWork</font></a>.SineWave1_AccFreqNorm -= 6.2831853071795862;
+</span><span><a class="LN" name="46">   46   </a>  <b>}</b> <span class="KW">else</span> <b>{</b>
+</span><span><a class="LN" name="47">   47   </a>    <span class="KW">if</span> (<a href="#var_Source_DWork" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_DWork');" target="rtwreport_document_frame"><font color="#1122aa">Source_DWork</font></a>.SineWave1_AccFreqNorm &lt; 0.0) <b>{</b>
+</span><span><a class="LN" name="48">   48   </a>      <a href="#var_Source_DWork" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_DWork');" target="rtwreport_document_frame"><font color="#1122aa">Source_DWork</font></a>.SineWave1_AccFreqNorm += 6.2831853071795862;
+</span><span><a class="LN" name="49">   49   </a>    <b>}</b>
+</span><span><a class="LN" name="50">   50   </a>  <b>}</b>
+</span><span><a class="LN" name="51">   51   </a><b>}</b>
+</span><span><a class="LN" name="52">   52   </a>
+</span><span><a class="LN" name="53">   53   </a><span class="CT">/* Model initialize function */</span>
+</span><span><a class="LN" name="54">   54   </a><span class="DT">void</span> <a name="fcn_Source_initialize">Source_initialize</a>(<span class="DT">void</span>)
+</span><span><a class="LN" name="55">   55   </a><b>{</b>
+</span><span><a class="LN" name="56">   56   </a>  <span class="CT">/* Registration code */</span>
+</span><span><a class="LN" name="57">   57   </a>
+</span><span><a class="LN" name="58">   58   </a>  <span class="CT">/* initialize error status */</span>
+</span><span><a class="LN" name="59">   59   </a>  rtmSetErrorStatus(<a href="#var_Source_M" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_M');" target="rtwreport_document_frame"><font color="#1122aa">Source_M</font></a>, (NULL));
+</span><span><a class="LN" name="60">   60   </a>
+</span><span><a class="LN" name="61">   61   </a>  <span class="CT">/* states (dwork) */</span>
+</span><span><a class="LN" name="62">   62   </a>  (<span class="DT">void</span>) memset((<span class="DT">void</span> *)&amp;<a href="#var_Source_DWork" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_DWork');" target="rtwreport_document_frame"><font color="#1122aa">Source_DWork</font></a>, 0,
+</span><span><a class="LN" name="63">   63   </a>                <span class="KW">sizeof</span>(<a href="Source_h.html#type_D_Work_Source" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_D_Work_Source');" target="rtwreport_document_frame"><font color="#1122aa">D_Work_Source</font></a>));
+</span><span><a class="LN" name="64">   64   </a>
+</span><span><a class="LN" name="65">   65   </a>  <span class="CT">/* external outputs */</span>
+</span><span><a class="LN" name="66">   66   </a>  <a href="#var_Source_Y" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_Y');" target="rtwreport_document_frame"><font color="#1122aa">Source_Y</font></a>.Out1 = 0.0;
+</span><span><a class="LN" name="67">   67   </a>
+</span><span><a class="LN" name="68">   68   </a>  <b>{</b>
+</span><span><a class="LN" name="69">   69   </a>    <a href="rtwtypes_h.html#type_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_real_T');" target="rtwreport_document_frame"><font color="#1122aa">real_T</font></a> arg;
+</span><span><a class="LN" name="70">   70   </a>
+</span><span><a class="LN" name="71">   71   </a>    <span class="CT">/* Start for S-Function (sdspsine2): '<a href="matlab:rtwprivate('code2model','fir_filter:6')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Sine Wave1</i></font></a>' */</span>
+</span><span><a class="LN" name="72">   72   </a>    <span class="CT">/* Trigonometric mode: compute accumulated</span>
+</span><span><a class="LN" name="73">   73   </a><span class="CT">       normalized trig fcn argument for each channel */</span>
+</span><span><a class="LN" name="74">   74   </a>    <span class="CT">/* Keep normalized value in range [0 2*pi) */</span>
+</span><span><a class="LN" name="75">   75   </a>    <span class="KW">for</span> (arg = <a href="Source_data_c.html#var_Source_P" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_P');" target="rtwreport_document_frame"><font color="#1122aa">Source_P</font></a>.SineWave1_Phase; arg &gt;= 6.2831853071795862; arg -=
+</span><span><a class="LN" name="76">   76   </a>         6.2831853071795862) <b>{</b>
+</span><span><a class="LN" name="77">   77   </a>    <b>}</b>
+</span><span><a class="LN" name="78">   78   </a>
+</span><span><a class="LN" name="79">   79   </a>    <span class="KW">while</span> (arg &lt; 0.0) <b>{</b>
+</span><span><a class="LN" name="80">   80   </a>      arg += 6.2831853071795862;
+</span><span><a class="LN" name="81">   81   </a>    <b>}</b>
+</span><span><a class="LN" name="82">   82   </a>
+</span><span><a class="LN" name="83">   83   </a>    <a href="#var_Source_DWork" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_DWork');" target="rtwreport_document_frame"><font color="#1122aa">Source_DWork</font></a>.SineWave1_AccFreqNorm = arg;
+</span><span><a class="LN" name="84">   84   </a>
+</span><span><a class="LN" name="85">   85   </a>    <span class="CT">/* End of Start for S-Function (sdspsine2): '<a href="matlab:rtwprivate('code2model','fir_filter:6')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Sine Wave1</i></font></a>' */</span>
+</span><span><a class="LN" name="86">   86   </a>  <b>}</b>
+</span><span><a class="LN" name="87">   87   </a>
+</span><span><a class="LN" name="88">   88   </a>  <b>{</b>
+</span><span><a class="LN" name="89">   89   </a>    <a href="rtwtypes_h.html#type_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_real_T');" target="rtwreport_document_frame"><font color="#1122aa">real_T</font></a> arg;
+</span><span><a class="LN" name="90">   90   </a>
+</span><span><a class="LN" name="91">   91   </a>    <span class="CT">/* InitializeConditions for S-Function (sdspsine2): '<a href="matlab:rtwprivate('code2model','fir_filter:6')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Sine Wave1</i></font></a>' */</span>
+</span><span><a class="LN" name="92">   92   </a>    <span class="CT">/* This code only executes when block is re-enabled in an</span>
+</span><span><a class="LN" name="93">   93   </a><span class="CT">       enabled subsystem when the enabled subsystem states on</span>
+</span><span><a class="LN" name="94">   94   </a><span class="CT">       re-enabling are set to 'Reset' */</span>
+</span><span><a class="LN" name="95">   95   </a>    <span class="CT">/* Reset to time zero on re-enable */</span>
+</span><span><a class="LN" name="96">   96   </a>    <span class="CT">/* Trigonometric mode: compute accumulated</span>
+</span><span><a class="LN" name="97">   97   </a><span class="CT">       normalized trig fcn argument for each channel */</span>
+</span><span><a class="LN" name="98">   98   </a>    <span class="CT">/* Keep normalized value in range [0 2*pi) */</span>
+</span><span><a class="LN" name="99">   99   </a>    <span class="KW">for</span> (arg = <a href="Source_data_c.html#var_Source_P" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_P');" target="rtwreport_document_frame"><font color="#1122aa">Source_P</font></a>.SineWave1_Phase; arg &gt;= 6.2831853071795862; arg -=
+</span><span><a class="LN" name="100">  100   </a>         6.2831853071795862) <b>{</b>
+</span><span><a class="LN" name="101">  101   </a>    <b>}</b>
+</span><span><a class="LN" name="102">  102   </a>
+</span><span><a class="LN" name="103">  103   </a>    <span class="KW">while</span> (arg &lt; 0.0) <b>{</b>
+</span><span><a class="LN" name="104">  104   </a>      arg += 6.2831853071795862;
+</span><span><a class="LN" name="105">  105   </a>    <b>}</b>
+</span><span><a class="LN" name="106">  106   </a>
+</span><span><a class="LN" name="107">  107   </a>    <a href="#var_Source_DWork" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Source_DWork');" target="rtwreport_document_frame"><font color="#1122aa">Source_DWork</font></a>.SineWave1_AccFreqNorm = arg;
+</span><span><a class="LN" name="108">  108   </a>
+</span><span><a class="LN" name="109">  109   </a>    <span class="CT">/* End of InitializeConditions for S-Function (sdspsine2): '<a href="matlab:rtwprivate('code2model','fir_filter:6')" name="code2model"><font color="#117755"><i>&lt;S1&gt;/Sine Wave1</i></font></a>' */</span>
+</span><span><a class="LN" name="110">  110   </a>  <b>}</b>
+</span><span><a class="LN" name="111">  111   </a><b>}</b>
+</span><span><a class="LN" name="112">  112   </a>
+</span><span><a class="LN" name="113">  113   </a><span class="CT">/* Model terminate function */</span>
+</span><span><a class="LN" name="114">  114   </a><span class="DT">void</span> <a name="fcn_Source_terminate">Source_terminate</a>(<span class="DT">void</span>)
+</span><span><a class="LN" name="115">  115   </a><b>{</b>
+</span><span><a class="LN" name="116">  116   </a>  <span class="CT">/* (no terminate code required) */</span>
+</span><span><a class="LN" name="117">  117   </a><b>}</b>
+</span><span><a class="LN" name="118">  118   </a>
+</span><span><a class="LN" name="119">  119   </a><span class="CT">/*</span>
+</span><span><a class="LN" name="120">  120   </a><span class="CT"> * File trailer for generated code.</span>
+</span><span><a class="LN" name="121">  121   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="122">  122   </a><span class="CT"> * [EOF]</span>
+</span><span><a class="LN" name="123">  123   </a><span class="CT"> */</span>
+</span><span><a class="LN" name="124">  124   </a>
+</span></pre>
+</td></tr></table>
+</p>
+</body>
+</html>
